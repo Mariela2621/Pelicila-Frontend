@@ -1,0 +1,32 @@
+<div class="row" *ngIf="!peli; else main_content">
+    <h1>Cargando ... </h1>
+</div>
+
+<ng-template #main_content>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <img [src]="'http://localhost:3000/' + peli.imagePath" class="img-fluid">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card">
+                <form class="card-body" (submit)="updatePelicula(titulo,descripcion)">
+                    <div class="from-group">
+                        <input type="text" class="form-control" placeholder="Titulo de la película" [value]="peli.titulo" #titulo>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="2" class="form-control" placeholder="Descripcion de la película" [value]="peli.descripcion" #descripcion></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-block">
+                        Actualizar
+                    </button>
+                    <button class="btn btn-danger btn-block" (click)="deletePelicula(peli._id)">
+                        Eliminar
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</ng-template>

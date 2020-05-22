@@ -1,0 +1,9 @@
+.card-photo {
+    cursor: pointer;
+}
+
+.card-photo:hover {
+    border: 1px solid grey;
+    color: black;
+    text-shadow: black 0.2em 0.2em 0.3
+}
